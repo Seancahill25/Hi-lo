@@ -10,8 +10,21 @@ namespace Hi_lo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            Deck deck = new Deck();
+           
+            foreach(var i in deck.MakeDeck())
+            {
+                Console.WriteLine("{0} {1}", i.Suit, i.Value);
+            }
+
+            Console.WriteLine();
+
+            var card = deck.DrawCard();
+            var card2 = deck.DrawCard();
+            Console.WriteLine("{0} {1}", card.Suit, card.Value);
+            Console.WriteLine("{0} {1}", card2.Suit, card2.Value);
+
+
         }
     }
 }
