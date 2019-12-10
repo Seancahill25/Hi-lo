@@ -13,7 +13,7 @@ namespace Hi_lo
             MakeDeck();
         }
 
-        List<Card> Cards = new List<Card>();
+        public List<Card> Cards = new List<Card>();
         public List<Card> MakeDeck()
         {
             
@@ -26,10 +26,19 @@ namespace Hi_lo
             }
             return Cards;
         }
-        
+
+        private static Random rng = new Random();
         public void Shuffle()
         {
-
+            int n = Cards.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                Card value = Cards[k];
+                Cards[k] = Cards[n];
+                Cards[n] = value;
+            }
         }
 
         public Card DrawCard()
