@@ -25,7 +25,6 @@ namespace Hi_lo
                 Console.WriteLine();
 
                 var card2 = deck.DrawCard();
-                Console.WriteLine("{0} of {1}", card2.Value, card2.Suit);
 
                 while (GameLogic.CheckMatch(card1, card2) == true)
                 {
@@ -33,7 +32,7 @@ namespace Hi_lo
                     card2 = deck.DrawCard();
                 }
 
-                if (guess == "hi")
+                if (guess == "high" || guess == "hi" || guess == "higher")
                 {
                     if (GameLogic.CheckHi(card1, card2) == true)
                     {
@@ -41,18 +40,22 @@ namespace Hi_lo
                         Console.WriteLine("Good guess");
                         Console.WriteLine((score - 1) + " Points");
                         Console.WriteLine();
+                        Console.WriteLine("{0} of {1}", card2.Value, card2.Suit);
                     }
 
 
                     else
                     {
+                        Console.WriteLine("{0} of {1}", card2.Value, card2.Suit);
+                        Console.WriteLine("you lose");
+                        Console.WriteLine();
                         Console.WriteLine("Final Score is " + (score - 1));
                         score = 0;
-                        Console.WriteLine("you lose");
+                        
                     }
                         
                 }
-                if (guess == "low")
+                if (guess == "low"|| guess == "lo" || guess == "lower")
                 {
                     if (GameLogic.CheckLow(card1, card2) == true)
                     {
@@ -60,12 +63,16 @@ namespace Hi_lo
                         Console.WriteLine("Good guess");
                         Console.WriteLine((score - 1) + " Points");
                         Console.WriteLine();
+                        Console.WriteLine("{0} of {1}", card2.Value, card2.Suit);
                     }
                     else
                     {
+                        Console.WriteLine("{0} of {1}", card2.Value, card2.Suit);
+                        Console.WriteLine("you lose");
+                        Console.WriteLine();
                         Console.WriteLine("Final Score is " + (score - 1));
                         score = 0;
-                        Console.WriteLine("you lose");
+                        
                     }
                 }
                 card1 = card2;
